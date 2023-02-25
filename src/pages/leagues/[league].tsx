@@ -32,7 +32,6 @@ const League = () => {
 export async function getStaticProps(){
   const responses = await get_football_api_data();
   const leagues = get_leagues(responses);
-  console.log(leagues[1]);
   
   return {
     props: {responses},
@@ -93,7 +92,6 @@ const get_football_api_data = async () => {
   const requests = get_requests(urls);
   const responses = await Promise.all<Api_Response>(requests);
   const combined_responses = responses.map(response => response.response).flat();
-  console.log(combined_responses[0])
 
   return combined_responses;
 };
