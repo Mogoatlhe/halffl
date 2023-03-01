@@ -1,16 +1,39 @@
 import { useRouter } from "next/router";
 
-type League = {
-  league: {
+type League =  {
     id: number,
     name: string,
     country: string,
     logo: string,
     flag: string,
   }
+
+type Team = {
+  id: number,
+  name: string,
+  logo: string,
+  points: number,
+  goal_diff: number,
+  wins: number,
+  losses: number,
+  draws: number,
+  times_played: number,
+  league_id: number
 }
 
-type Response_Types = League;
+type Half_Score = {
+  home: number,
+  away: number
+}
+
+type Score = {
+  halftime: Half_Score,
+  fulltime: Half_Score
+}
+
+type Response_Types = {
+  league: League, teams: {home: Team, away: Team}, score: Score
+};
 
 type Api_Response = {
   response: [
@@ -98,11 +121,55 @@ const get_football_api_data = async () => {
 
 const get_leagues = (responses: Response_Types []) => {
   const leagues = responses.map(response => {
-    return response.league
+    const league = response.league;
+    
+    return league;
   });
 
   // removes duplicates
   return leagues.filter((league, index, self) => index === self.findIndex(league_temp => league.id === league_temp.id));
+}
+
+const get_teams = (responses: Response_Types []) => {
+  const teams = Array(0) as Team [];
+  const league_ids = responses.map(response => response.league.id);
+
+  let index = 0;
+  for (const response of responses) {
+    index += 1;
+    const league_id = league_ids[index];
+    const score = response.score;
+    const response_teams = response.teams;
+    
+
+    // avoids having to change function call in multiple places.
+    for (const key in response_teams) {
+      if ((key === "home" || key === "away") && typeof league_id === "number")
+        add_teams(teams, response_teams[key], league_id, score, key);
+    }
+  }
+
+  return teams;
+}
+
+const add_teams = (teams: Team [], team: Team, league: number, score: Score, ground: string) => {
+  const goal_diff = get_goal_diff(ground, score);
+  const existing_team_index = teams.findIndex(t => t.id === team.id);
+
+  if (existing_team_index !== -1){
+    const existing_team = teams[existing_team_index];
+    
+    if (existing_team !== undefined && existing_team.goal_diff !== undefined)
+      existing_team.goal_diff += goal_diff;
+  }
+}
+
+const get_goal_diff = (ground: string, score: Score) => {
+  const goal_diff = score.halftime.home - score.halftime.away + score.fulltime.home - score.fulltime.away;
+  
+  if (ground === "home")
+    return goal_diff;
+  return -goal_diff
 }
 
 export default League;
