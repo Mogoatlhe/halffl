@@ -41,6 +41,13 @@ type Api_Response = {
   ]
 }
 
+type Results = {
+  points: number,
+  win: number,
+  lose: number,
+  draw: number
+}
+
 const League = () => {
   const router = useRouter();
   const {league} = router.query;
@@ -154,9 +161,8 @@ const get_teams = (responses: Response_Types []) => {
 
 const add_teams = (teams: Team [], team: Team, league: number, score: Score, ground: string) => {
   const goal_diff = get_goal_diff(ground, score);
-  const firsthalf_results = get_half_results(ground, score.halftime);
-  const secondhalf_results = get_half_results(ground, score.fulltime);
-  const results = firsthalf_results + secondhalf_results;
+  const results = get_fulltime_results(ground, score.halftime, score.fulltime);
+
   const existing_team_index = teams.findIndex(t => t.id === team.id);
 
   if (existing_team_index !== -1){
@@ -165,7 +171,10 @@ const add_teams = (teams: Team [], team: Team, league: number, score: Score, gro
     if (existing_team !== undefined && existing_team.goal_diff !== undefined)
     {
       existing_team.goal_diff += goal_diff;
-      existing_team.points += results;
+      existing_team.points += results.points;
+      existing_team.draws += results.draw;
+      existing_team.wins += results.win;
+      existing_team.losses += results.lose;
     }
 
 
@@ -186,23 +195,51 @@ const get_goal_diff = (ground: string, score: Score) => {
 const get_half_results = (ground: string, half_score: Half_Score) => {
   const score = half_score.home - half_score.away;
 
-  if (score === 0) {
-    return 1;
+  const results = {
+    points: 0,
+    win: 0,
+    lose: 0,
+    draw: 0
   }
 
-  if (ground === "home"){
+  if (score === 0) {
+    results.points =  1;
+    results.draw = 1;
+  }
+  else if (ground === "home"){
     if (score > 0) {
-      return 3;
+      results.points = 3;
+      results.win = 1;
     }
 
-    return 0;
+    results.points =  0;
+    results.lose = 1;
+  }
+  else {
+
+    if (score < 0){
+      results.points = 3;
+      results.win = 1;
+    }
+  
+    results.points =  0;
+    results.lose = 1;
   }
 
-  if (score < 0){
-    return 3;
-  }
+  return results;
 
-  return 0;
+}
+
+const get_fulltime_results = (ground: string, halftime_score: Half_Score, fulltime_score: Half_Score) => {
+  const firsthalf_results = get_half_results(ground, halftime_score);
+  const secondhalf_results = get_half_results(ground, fulltime_score);
+
+  return {
+    points: firsthalf_results.points + secondhalf_results.points,
+    win: firsthalf_results.win + secondhalf_results.win,
+    lose: firsthalf_results.win + secondhalf_results.lose,
+    draw: firsthalf_results.win + secondhalf_results.draw,
+  }
 }
 
 export default League;
