@@ -1,6 +1,7 @@
 import type Team from "~/types/Team";
 import type Response_Types from "~/types/Response_Types";
 import add_teams from "./add_teams";
+import sort_teams_by_points from "./sort_teams_by_points";
 
 const get_teams = (responses: Response_Types[]) => {
   const teams = Array(0) as Team[];
@@ -20,6 +21,7 @@ const get_teams = (responses: Response_Types[]) => {
     }
   }
 
+  sort_teams_by_points(teams);
   return teams;
 };
 
