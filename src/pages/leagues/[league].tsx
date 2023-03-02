@@ -4,6 +4,8 @@ import type Response_Types from "~/types/Response_Types";
 import type Api_Response from "~/types/Api_Response";
 import get_teams from "~/functions/get_teams";
 
+let leagues_count: number;
+
 const League = () => {
   const router = useRouter();
   const { league } = router.query;
@@ -19,10 +21,11 @@ export async function getStaticProps() {
   const responses = await get_football_api_data();
   const leagues = get_leagues(responses);
   const teams = get_teams(responses);
+  const max_allowed_req = 51840;
 
   return {
     props: { leagues, teams },
-    revalidate: 1800,
+    revalidate: max_allowed_req * leagues_count,
   };
 }
 export function getStaticPaths() {
@@ -58,6 +61,7 @@ const get_football_api_urls = () => {
   const from_date = "2022-07-01";
   const league_ids = [288, 39]; // , 140, 61, 135, 78, 88, 94];
   const current_date = get_current_date();
+  leagues_count = league_ids.length;
 
   const urls = league_ids.map(
     (league_id) =>
