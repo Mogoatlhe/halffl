@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import League from "~/types/League";
 import type Response_Types from "~/types/Response_Types";
 import type Api_Response from "~/types/Api_Response";
+import get_teams from "~/functions/get_teams";
 
 const League = () => {
   const router = useRouter();
@@ -17,9 +18,10 @@ const League = () => {
 export async function getStaticProps() {
   const responses = await get_football_api_data();
   const leagues = get_leagues(responses);
+  const teams = get_teams(responses);
 
   return {
-    props: { responses },
+    props: { leagues, teams },
     revalidate: 1800,
   };
 }
