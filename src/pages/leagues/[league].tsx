@@ -154,14 +154,25 @@ const get_teams = (responses: Response_Types []) => {
 
 const add_teams = (teams: Team [], team: Team, league: number, score: Score, ground: string) => {
   const goal_diff = get_goal_diff(ground, score);
+  const firsthalf_results = get_half_results(ground, score.halftime);
+  const secondhalf_results = get_half_results(ground, score.fulltime);
+  const results = firsthalf_results + secondhalf_results;
   const existing_team_index = teams.findIndex(t => t.id === team.id);
 
   if (existing_team_index !== -1){
     const existing_team = teams[existing_team_index];
     
     if (existing_team !== undefined && existing_team.goal_diff !== undefined)
+    {
       existing_team.goal_diff += goal_diff;
+      existing_team.points += results;
+    }
+
+
+    return;
   }
+
+
 }
 
 const get_goal_diff = (ground: string, score: Score) => {
@@ -170,6 +181,28 @@ const get_goal_diff = (ground: string, score: Score) => {
   if (ground === "home")
     return goal_diff;
   return -goal_diff
+}
+
+const get_half_results = (ground: string, half_score: Half_Score) => {
+  const score = half_score.home - half_score.away;
+
+  if (score === 0) {
+    return 1;
+  }
+
+  if (ground === "home"){
+    if (score > 0) {
+      return 3;
+    }
+
+    return 0;
+  }
+
+  if (score < 0){
+    return 3;
+  }
+
+  return 0;
 }
 
 export default League;
