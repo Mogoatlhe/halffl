@@ -20,14 +20,11 @@ i've heard people say "at least they didn't lose the second half", referring to 
   <p style="text-align: justify">
   </p>
 
-## Learn More
+## design (preview)
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### desktop
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+![desktop design](./public/images/design/halffl-desktop-design.png)
 
 ## How do I deploy this?
 
