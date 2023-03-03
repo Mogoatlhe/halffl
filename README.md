@@ -14,9 +14,7 @@ i've heard people say "at least they didn't lose the second half", referring to 
 
 - ~~made with love~~
 - [Next.js](https://nextjs.org)
-  <p style="text-align: justify">
-  - instead of storing the data from the api in a database and updating it whenever there's a fixture i periodically call the api multiple times a day and update the tables accordingly. [isr (incremental static regeneration)](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) from `nextjs` allows me to do so without affecting performance. this makes it extremely helpfull especially dealing with multiple leagues and when there's fixture postponements.
-  </p>
+  - instead of storing the data from the api in a database and updating it whenever there's a fixture i periodically call the api multiple times a day and update the tables accordingly. [isr (incremental static regeneration)](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) from `nextjs` allows me to do so without affecting performance. this makes it extremely helpful especially when dealing with multiple leagues and when there's fixture postponements.
 - [Tailwind CSS](https://tailwindcss.com)
   - makes styling a lot easier.
   <p style="text-align: justify">
