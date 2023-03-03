@@ -20,7 +20,7 @@ const Leagues_Container = ({ leagues }: { leagues: League[] }) => {
         </label>
         <select
           id="leagues"
-          className={`w-44 bg-white pl-3 text-sm ${iceland.className}`}
+          className={`w-44 bg-white pl-3 text-sm ${iceland.className} cursor-pointer`}
         >
           {get_league_options}
         </select>
