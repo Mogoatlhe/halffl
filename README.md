@@ -1,18 +1,26 @@
-# Create T3 App
+# halffl
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+<p style="text-align: justify">
+halffl (half football leagues) is a website which displays what selected football league tables would look like if points were awarded after each half ended.
+</p>
 
-## What's next? How do I make an app with this?
+### reasoning
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+<p style="text-align: justify">
+i've heard people say "at least they didn't lose the second half", referring to a team that conceded a few goals in the first half. i then got curious what league tables would look like if points were awarded on a per half basis.
+</p>
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Stack
 
+- ~~made with love~~
 - [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
+  <p style="text-align: justify">
+  - instead of storing the data from the api in a database and updating it whenever there's a fixture i periodically call the api multiple times a day and update the tables accordingly. [isr (incremental static regeneration)](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) from `nextjs` allows me to do so without affecting performance. this makes it extremely helpfull especially dealing with multiple leagues and when there's fixture postponements.
+  </p>
 - [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+  - makes styling a lot easier.
+  <p style="text-align: justify">
+  </p>
 
 ## Learn More
 
