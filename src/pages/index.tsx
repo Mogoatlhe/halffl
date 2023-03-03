@@ -1,6 +1,6 @@
 import type Response_Types from "~/types/Response_Types";
 import type Api_Response from "~/types/Api_Response";
-import get_teams from "~/functions/get_teams";
+import get_teams from "~/functions/team/get_teams";
 import type League from "~/types/League";
 import type Team from "~/types/Team";
 
