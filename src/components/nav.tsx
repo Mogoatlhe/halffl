@@ -1,11 +1,6 @@
 import Image from "next/image";
 import logo from "./../../public/images/logo.png";
-import { IBM_Plex_Serif } from "next/font/google";
-
-const ibm_plex_serif = IBM_Plex_Serif({
-  weight: "400",
-  subsets: ["latin"],
-});
+import ibm_plex_serif from "~/fonts/ibm_plex_serif";
 
 const Nav = () => {
   return (
