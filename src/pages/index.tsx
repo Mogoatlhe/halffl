@@ -1,8 +1,8 @@
-import type Response_Types from "~/types/Response_Types";
 import type Api_Response from "~/types/Api_Response";
 import get_teams from "~/functions/team/get_teams";
 import type League from "~/types/League";
 import type Team from "~/types/Team";
+import get_leagues from "~/functions/league/get_leagues";
 
 let leagues_count: number;
 
@@ -75,20 +75,6 @@ const get_football_api_data = async () => {
     .flat();
 
   return combined_responses;
-};
-
-const get_leagues = (responses: Response_Types[]) => {
-  const leagues = responses.map((response) => {
-    const league = response.league;
-
-    return league;
-  });
-
-  // removes duplicates
-  return leagues.filter(
-    (league, index, self) =>
-      index === self.findIndex((league_temp) => league.id === league_temp.id)
-  );
 };
 
 export default Home;
