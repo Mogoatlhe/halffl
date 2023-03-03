@@ -10,6 +10,12 @@ halffl (half football leagues) is a website which displays what selected footbal
 i've heard people say "at least they didn't lose the second half", referring to a team that conceded a few goals in the first half. i then got curious what league tables would look like if points were awarded on a per half basis.
 </p>
 
+## design (preview)
+
+### desktop
+
+![desktop design](./public/images/design/halffl-desktop-design.png)
+
 ## Stack
 
 - ~~made with love~~
@@ -19,12 +25,6 @@ i've heard people say "at least they didn't lose the second half", referring to 
   - makes styling a lot easier.
   <p style="text-align: justify">
   </p>
-
-## design (preview)
-
-### desktop
-
-![desktop design](./public/images/design/halffl-desktop-design.png)
 
 ## How do I deploy this?
 
