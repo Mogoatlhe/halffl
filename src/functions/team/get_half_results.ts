@@ -17,18 +17,18 @@ const get_half_results = (ground: string, half_score: Half_Score) => {
     if (score > 0) {
       results.points = 3;
       results.win = 1;
+    } else {
+      results.points = 0;
+      results.lose = 1;
     }
-
-    results.points = 0;
-    results.lose = 1;
   } else {
     if (score < 0) {
       results.points = 3;
       results.win = 1;
+    } else {
+      results.points = 0;
+      results.lose = 1;
     }
-
-    results.points = 0;
-    results.lose = 1;
   }
 
   return results;
