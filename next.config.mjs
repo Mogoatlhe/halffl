@@ -14,6 +14,25 @@ const config = {
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
     ],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.api-sports.io/",
+        port: "",
+        pathname: "/football/teams/**",
+      },
+    ],
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: "/media/:img",
+        destination: "https://media.api-sports.io/football/teams/:img",
+      },
+    ];
+  },
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you
