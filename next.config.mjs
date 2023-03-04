@@ -15,24 +15,35 @@ const config = {
     ],
   },
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "media.api-sports.io/",
+        hostname: "media.api-sports.io",
         port: "",
         pathname: "/football/teams/**",
       },
     ],
   },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: "https",
+  //       hostname: "assets.vercel.com",
+  //       port: "",
+  //       pathname: "/image/upload/**",
+  //     },
+  //   ],
+  // },
 
-  async rewrites() {
-    return [
-      {
-        source: "/media/:img",
-        destination: "https://media.api-sports.io/football/teams/:img",
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/media/:img",
+  //       destination: "https://media.api-sports.io/football/teams/:img",
+  //     },
+  //   ];
+  // },
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you

@@ -4,16 +4,18 @@ import type Team from "~/types/Team";
 const Team_Container = ({ team, index }: { team: Team; index: number }) => {
   return (
     <div className={`grid w-full grid-cols-8 gap-2 p-2 text-sm`}>
-      <div className="col-span-3 flex whitespace-nowrap">
+      <div className="col-span-3 flex items-center gap-2 whitespace-nowrap">
         <p>{`${index}`}</p>
-        <div className="h-4/12 relative w-7/12 border border-blue-700">
+        <div className="h-12/12 relative w-3/12">
           <Image
-            src={`/media${team.logo.substring(team.logo.lastIndexOf("/"))}`}
-            alt={`${team.name} logo`}
-            fill
-            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+            alt="Next.js logo"
+            src={team.logo}
+            width={1200}
+            height={400}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
           />
         </div>
         {/* <p>{`${team.name}`}</p> */}
