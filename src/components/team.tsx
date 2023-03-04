@@ -10,8 +10,8 @@ const Team_Container = ({ team, index }: { team: Team; index: number }) => {
           <Image
             alt="Next.js logo"
             src={team.logo}
-            width={1200}
-            height={400}
+            width={24}
+            height={24}
             style={{
               maxWidth: "100%",
               height: "auto",
