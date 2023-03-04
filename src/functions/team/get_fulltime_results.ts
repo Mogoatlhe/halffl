@@ -12,8 +12,8 @@ const get_fulltime_results = (
   return {
     points: firsthalf_results.points + secondhalf_results.points,
     win: firsthalf_results.win + secondhalf_results.win,
-    lose: firsthalf_results.win + secondhalf_results.lose,
-    draw: firsthalf_results.win + secondhalf_results.draw,
+    lose: firsthalf_results.lose + secondhalf_results.lose,
+    draw: firsthalf_results.draw + secondhalf_results.draw,
   };
 };
 
