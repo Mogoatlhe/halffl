@@ -1,6 +1,19 @@
 import type Team from "~/types/Team";
+import Team_Container from "./team";
 
-const Table = ({ teams }: { teams: Team[] }) => {
+const Table = ({
+  teams,
+  current_league,
+}: {
+  teams: Team[];
+  current_league: number;
+}) => {
+  const get_teams = teams
+    .filter((team) => team.league_id === current_league)
+    .map((team, i) => (
+      <Team_Container key={team.id} team={team} index={i + 1} />
+    ));
+
   return (
     <>
       <div className={`flex justify-center py-6 px-2`}>
@@ -16,6 +29,7 @@ const Table = ({ teams }: { teams: Team[] }) => {
             <span>pts</span>
           </div>
           <hr className={`h-px w-11/12 border-0 bg-zinc-900`} />
+          <div className={`w-full`}>{get_teams}</div>
         </div>
       </div>
     </>

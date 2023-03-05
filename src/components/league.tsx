@@ -1,22 +1,27 @@
+import type { ChangeEvent } from "react";
 import iceland from "~/fonts/iceland";
 import inria_sans from "~/fonts/inria_sans";
 import type League from "~/types/League";
 
-const Leagues_Container = ({ leagues }: { leagues: League[] }) => {
-  const get_league_options = leagues.map((league) => {
-    if (league.id === 39)
-      return (
-        <option key={league.id} value={league.id} selected>
-          {league.name}
-        </option>
-      );
+const Leagues_Container = ({
+  leagues,
+  current_league,
+  change_league,
+}: {
+  leagues: League[];
+  current_league: number;
+  change_league: (league_id: number) => void;
+}) => {
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = Number(event.target.value);
+    change_league(value);
+  };
 
-    return (
-      <option key={league.id} value={league.id}>
-        {league.name}
-      </option>
-    );
-  });
+  const get_league_options = leagues.map((league) => (
+    <option key={league.id} value={league.id}>
+      {league.name}
+    </option>
+  ));
 
   return (
     <>
@@ -28,8 +33,10 @@ const Leagues_Container = ({ leagues }: { leagues: League[] }) => {
           Leagues
         </label>
         <select
+          value={current_league}
           id="leagues"
           className={`w-44 bg-white pl-3 text-sm ${iceland.className} cursor-pointer`}
+          onChange={handleChange}
         >
           {get_league_options}
         </select>
