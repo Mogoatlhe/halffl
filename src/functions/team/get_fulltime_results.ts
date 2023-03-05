@@ -1,5 +1,6 @@
 import type Half_Score from "~/types/Half_Score";
 import get_half_results from "./get_half_results";
+import get_second_half_results from "./get_second_half_results";
 
 const get_fulltime_results = (
   ground: string,
@@ -7,7 +8,11 @@ const get_fulltime_results = (
   fulltime_score: Half_Score
 ) => {
   const firsthalf_results = get_half_results(ground, halftime_score);
-  const secondhalf_results = get_half_results(ground, fulltime_score);
+  const secondhalf_results = get_second_half_results(
+    ground,
+    halftime_score,
+    fulltime_score
+  );
 
   return {
     points: firsthalf_results.points + secondhalf_results.points,
