@@ -5,7 +5,7 @@ import ibm_plex_serif from "~/fonts/ibm_plex_serif";
 const Nav = () => {
   return (
     <>
-      <nav className="h-15 fixed flex w-full items-center border-b border-zinc-400 bg-gradient-to-r from-[#be9a1c]/[.4] to-[#1E1E1E] p-3 sm:h-20 lg:h-16">
+      <nav className="h-15 fixed flex w-full items-center border-b border-zinc-400 bg-orange-200 bg-gradient-to-r from-[#be9a1c]/[.4] to-[#1E1E1E] p-3 sm:h-20 lg:h-16">
         <div className="h-15 flex items-end gap-1">
           <div className="relative h-8 w-8 sm:h-12 sm:w-12">
             <Image
