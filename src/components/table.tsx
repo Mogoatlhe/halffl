@@ -20,12 +20,15 @@ const Table = ({
         <div
           className={`grid w-full grid-cols-1 justify-items-center rounded-lg border border-zinc-400 px-3`}
         >
-          <div className={`grid w-full grid-cols-8 gap-2 border-b p-2 text-sm`}>
+          <div
+            className={`grid w-full grid-cols-8 gap-2 border-b p-2 text-sm lg:grid-cols-9`}
+          >
             <span className={`col-span-3`}>club</span>
             <span>mp</span>
             <span>w</span>
             <span>d</span>
             <span>l</span>
+            <span className="hidden lg:block">gd</span>
             <span>pts</span>
           </div>
           <div className={`w-full`}>{get_teams}</div>

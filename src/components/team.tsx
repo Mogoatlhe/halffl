@@ -3,7 +3,9 @@ import type Team from "~/types/Team";
 
 const Team_Container = ({ team, index }: { team: Team; index: number }) => {
   return (
-    <div className={`grid w-full grid-cols-8 gap-2 border-b px-1 py-2 text-sm`}>
+    <div
+      className={`grid w-full grid-cols-8 gap-2 border-b px-1 py-2 text-sm lg:grid-cols-9`}
+    >
       <div className="col-span-3 flex items-center gap-2">
         <div className="flex">
           <p className="flex w-10 justify-center">{`${index}`}</p>
@@ -24,6 +26,7 @@ const Team_Container = ({ team, index }: { team: Team; index: number }) => {
       <span>{team.wins}</span>
       <span>{team.draws}</span>
       <span>{team.losses}</span>
+      <span className="hidden lg:block">{team.goal_diff}</span>
       <span>{team.points}</span>
     </div>
   );
