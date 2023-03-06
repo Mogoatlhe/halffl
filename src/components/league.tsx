@@ -25,9 +25,9 @@ const Leagues_Container = ({
 
   return (
     <>
-      <div className="flex h-12 flex-col justify-center border-b border-zinc-900 p-3">
+      <div className="flex h-12 flex-col justify-center border-b border-zinc-900 p-3 sm:h-16">
         <label
-          className={`fonts-extrabold text-xs ${inria_sans.className}`}
+          className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className}`}
           htmlFor="leagues"
         >
           Leagues
@@ -35,7 +35,7 @@ const Leagues_Container = ({
         <select
           value={current_league}
           id="leagues"
-          className={`w-44 bg-white pl-3 text-sm ${iceland.className} cursor-pointer`}
+          className={`w-44 bg-white pl-3 text-sm sm:w-52 sm:text-base ${iceland.className} cursor-pointer`}
           onChange={handleChange}
         >
           {get_league_options}

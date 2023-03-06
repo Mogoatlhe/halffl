@@ -18,7 +18,7 @@ const Team_Container = ({ team, index }: { team: Team; index: number }) => {
             }}
           />
         </div>
-        <p className="w-16 truncate whitespace-nowrap">{`${team.name}`}</p>
+        <p className="w-16 truncate whitespace-nowrap sm:w-36">{`${team.name}`}</p>
       </div>
       <span>{team.times_played}</span>
       <span>{team.wins}</span>
