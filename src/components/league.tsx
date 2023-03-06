@@ -69,7 +69,20 @@ const Leagues_Container = ({
 
   return (
     <>
-      <div className="flex h-12 flex-col justify-center border-b border-zinc-400 p-3 sm:h-16 lg:mt-6 lg:h-5/6 lg:w-80  lg:border lg:pr-0">
+      <div className="mt-15 hidden h-screen p-0 sm:mt-20 lg:fixed lg:mt-16 lg:block">
+        <div className="flex h-screen flex-col border-b border-zinc-400 p-3 pt-0 lg:mt-6 lg:h-5/6 lg:border lg:pr-0">
+          <label
+            className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className} mt-3`}
+            htmlFor="leagues"
+          >
+            Leagues
+          </label>
+          <div className="hidden w-full gap-4 overflow-auto pt-4 text-sm lg:flex lg:flex-col lg:items-end">
+            {get_league_buttons}
+          </div>
+        </div>
+      </div>
+      <div className=" mt-15 flex h-12 flex-col justify-center border-b border-zinc-400 p-3 sm:mt-20 sm:h-16 lg:invisible lg:mt-16 lg:h-5/6 lg:w-80  lg:border lg:pr-0">
         <label
           className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className}`}
           htmlFor="leagues"
@@ -84,9 +97,6 @@ const Leagues_Container = ({
         >
           {get_league_options}
         </select>
-        <div className="hidden w-full gap-4 pt-4 text-sm lg:flex lg:flex-col lg:items-end">
-          {get_league_buttons}
-        </div>
       </div>
     </>
   );

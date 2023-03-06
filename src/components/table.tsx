@@ -16,7 +16,9 @@ const Table = ({
 
   return (
     <>
-      <div className={`flex justify-center py-6 px-2`}>
+      <div
+        className={`mt-15  flex justify-center py-6  px-2 sm:mt-20 lg:mt-16`}
+      >
         <div
           className={`grid w-full grid-cols-1 justify-items-center rounded-lg border border-zinc-400 px-3`}
         >
