@@ -37,8 +37,12 @@ export async function getStaticProps() {
   const responses = await get_football_api_data();
   const leagues = get_leagues(responses);
   const teams = get_teams(responses);
-  const leagues_count = 2; //leagues.length;
+  const leagues_count = leagues.length;
   const max_allowed_req = 51840;
+
+  if (typeof leagues_count !== "number" || leagues_count === 0) {
+    throw new Error("failed fetch");
+  }
 
   return {
     props: { leagues, teams },
