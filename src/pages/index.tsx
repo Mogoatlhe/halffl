@@ -9,7 +9,7 @@ import Table from "~/components/table";
 import { useState } from "react";
 
 const Home = ({ leagues, teams }: { leagues: League[]; teams: Team[] }) => {
-  const default_league_id = 288;
+  const default_league_id = 39;
   const [current_league, set_current_league] = useState(default_league_id);
 
   const change_league = (league_id: number): void => {
@@ -19,12 +19,16 @@ const Home = ({ leagues, teams }: { leagues: League[]; teams: Team[] }) => {
   return (
     <>
       <Header title="halffl" />
-      <Leagues_Container
-        leagues={leagues}
-        change_league={change_league}
-        current_league={current_league}
-      />
-      <Table teams={teams} current_league={current_league} />
+      <div className="flex flex-col lg:w-full lg:flex-row lg:gap-6 lg:pr-6">
+        <Leagues_Container
+          leagues={leagues}
+          change_league={change_league}
+          current_league={current_league}
+        />
+        <div className="w-full">
+          <Table teams={teams} current_league={current_league} />
+        </div>
+      </div>
     </>
   );
 };
