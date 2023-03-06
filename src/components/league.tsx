@@ -32,7 +32,7 @@ const Leagues_Container = ({
     >
       <div className="grid gap-2">
         <Image
-          alt="Next.js logo"
+          alt="country flag"
           src={league.flag}
           width={24}
           height={24}
@@ -42,7 +42,7 @@ const Leagues_Container = ({
           }}
         />
         <Image
-          alt="Next.js logo"
+          alt="league logo"
           src={league.logo}
           width={24}
           height={24}
