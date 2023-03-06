@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ChangeEvent } from "react";
 import iceland from "~/fonts/iceland";
 import inria_sans from "~/fonts/inria_sans";
@@ -26,9 +27,32 @@ const Leagues_Container = ({
   const get_league_buttons = leagues.map((league) => (
     <button
       key={league.id}
-      className="w-52 border border-r-0 border-amber-800 p-4 font-bold shadow-lg"
+      className="grid w-52 grid-cols-4 items-center border border-r-0 border-amber-800 p-4 font-bold shadow-lg"
+      type="button"
     >
-      {league.name}
+      <div className="grid gap-2">
+        <Image
+          alt="Next.js logo"
+          src={league.flag}
+          width={24}
+          height={24}
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+          }}
+        />
+        <Image
+          alt="Next.js logo"
+          src={league.logo}
+          width={24}
+          height={24}
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+          }}
+        />
+      </div>
+      <p className="col-span-3">{league.name}</p>
     </button>
   ));
 
