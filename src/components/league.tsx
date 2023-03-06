@@ -25,7 +25,7 @@ const Leagues_Container = ({
 
   return (
     <>
-      <div className="flex h-12 flex-col justify-center border-b border-zinc-900 p-3 sm:h-16">
+      <div className="flex h-12 flex-col justify-center border-b border-zinc-400 p-3 sm:h-16">
         <label
           className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className}`}
           htmlFor="leagues"
