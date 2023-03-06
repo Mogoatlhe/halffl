@@ -30,16 +30,18 @@ const Leagues_Container = ({
     </option>
   ));
 
-  const get_league_buttons = leagues.map((league) => (
-    <button
-      key={league.id}
-      className="grid w-64 grid-cols-4 items-center border border-r-0 border-amber-800 p-4 font-bold shadow-lg"
-      type="button"
-      onClick={handleClick}
-      value={league.id}
-    >
-      <div className="grid gap-2">
-        {/* <Image
+  const get_league_buttons = leagues.map((league) => {
+    const bg_color = league.id === current_league ? "bg-slate-100" : "bg-white";
+    return (
+      <button
+        key={league.id}
+        className={`grid w-64 grid-cols-4 items-center border border-r-0 border-amber-800 ${bg_color} p-4 font-bold shadow-lg`}
+        type="button"
+        onClick={handleClick}
+        value={league.id}
+      >
+        <div className="grid gap-2">
+          {/* <Image
           alt="country flag"
           src={league.flag}
           width={24}
@@ -49,20 +51,21 @@ const Leagues_Container = ({
             height: "auto",
           }}
         /> */}
-        <Image
-          alt="league logo"
-          src={league.logo}
-          width={24}
-          height={24}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
-        />
-      </div>
-      <p className="col-span-3">{league.name}</p>
-    </button>
-  ));
+          <Image
+            alt="league logo"
+            src={league.logo}
+            width={24}
+            height={24}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          />
+        </div>
+        <p className="col-span-3">{league.name}</p>
+      </button>
+    );
+  });
 
   return (
     <>
