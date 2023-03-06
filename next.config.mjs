@@ -21,29 +21,10 @@ const config = {
         protocol: "https",
         hostname: "media.api-sports.io",
         port: "",
-        pathname: "/football/teams/**",
+        pathname: "/football/**/**",
       },
     ],
   },
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: "https",
-  //       hostname: "assets.vercel.com",
-  //       port: "",
-  //       pathname: "/image/upload/**",
-  //     },
-  //   ],
-  // },
-
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: "/media/:img",
-  //       destination: "https://media.api-sports.io/football/teams/:img",
-  //     },
-  //   ];
-  // },
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you
