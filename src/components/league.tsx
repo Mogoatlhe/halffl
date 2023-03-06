@@ -27,11 +27,11 @@ const Leagues_Container = ({
   const get_league_buttons = leagues.map((league) => (
     <button
       key={league.id}
-      className="grid w-52 grid-cols-4 items-center border border-r-0 border-amber-800 p-4 font-bold shadow-lg"
+      className="grid w-64 grid-cols-4 items-center border border-r-0 border-amber-800 p-4 font-bold shadow-lg"
       type="button"
     >
       <div className="grid gap-2">
-        <Image
+        {/* <Image
           alt="country flag"
           src={league.flag}
           width={24}
@@ -40,7 +40,7 @@ const Leagues_Container = ({
             maxWidth: "100%",
             height: "auto",
           }}
-        />
+        /> */}
         <Image
           alt="league logo"
           src={league.logo}
@@ -58,7 +58,7 @@ const Leagues_Container = ({
 
   return (
     <>
-      <div className="flex h-12 flex-col justify-center border-b border-zinc-400 p-3 sm:h-16 lg:mt-6 lg:h-5/6 lg:w-72  lg:border lg:pr-0">
+      <div className="flex h-12 flex-col justify-center border-b border-zinc-400 p-3 sm:h-16 lg:mt-6 lg:h-5/6 lg:w-80  lg:border lg:pr-0">
         <label
           className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className}`}
           htmlFor="leagues"
