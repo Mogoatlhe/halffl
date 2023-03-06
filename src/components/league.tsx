@@ -72,7 +72,7 @@ const Leagues_Container = ({
       <div className="hidden h-screen p-0 lg:fixed lg:mt-16 lg:block">
         <div className="flex h-screen flex-col border-b border-zinc-400 p-3 pt-0 lg:mt-6 lg:h-5/6 lg:border lg:pr-0">
           <label
-            className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className} mt-3`}
+            className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className} mt-3 h-8`}
             htmlFor="leagues"
           >
             Leagues
