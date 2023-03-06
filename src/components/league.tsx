@@ -69,7 +69,7 @@ const Leagues_Container = ({
 
   return (
     <>
-      <div className="mt-15 hidden h-screen p-0 sm:mt-20 lg:fixed lg:mt-16 lg:block">
+      <div className="hidden h-screen p-0 lg:fixed lg:mt-16 lg:block">
         <div className="flex h-screen flex-col border-b border-zinc-400 p-3 pt-0 lg:mt-6 lg:h-5/6 lg:border lg:pr-0">
           <label
             className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className} mt-3`}
@@ -82,7 +82,7 @@ const Leagues_Container = ({
           </div>
         </div>
       </div>
-      <div className=" mt-15 flex h-12 flex-col justify-center border-b border-zinc-400 p-3 sm:mt-20 sm:h-16 lg:invisible lg:mt-16 lg:h-5/6 lg:w-80  lg:border lg:pr-0">
+      <div className="mt-14 flex h-12 flex-col justify-center border-b border-zinc-400 p-3 sm:mt-20 sm:h-16 lg:invisible lg:mt-16 lg:h-5/6 lg:w-80  lg:border lg:pr-0">
         <label
           className={`fonts-extrabold text-xs sm:text-sm ${inria_sans.className}`}
           htmlFor="leagues"
