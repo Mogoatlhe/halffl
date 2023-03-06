@@ -18,6 +18,12 @@ const Leagues_Container = ({
     change_league(value);
   };
 
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    const button = event.currentTarget as HTMLButtonElement;
+    const value = Number(button.value);
+    change_league(value);
+  };
+
   const get_league_options = leagues.map((league) => (
     <option key={league.id} value={league.id}>
       {league.name}
@@ -29,6 +35,8 @@ const Leagues_Container = ({
       key={league.id}
       className="grid w-64 grid-cols-4 items-center border border-r-0 border-amber-800 p-4 font-bold shadow-lg"
       type="button"
+      onClick={handleClick}
+      value={league.id}
     >
       <div className="grid gap-2">
         {/* <Image
