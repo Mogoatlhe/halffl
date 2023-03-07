@@ -23,3 +23,7 @@ halffl (half football leagues) is a website which displays what selected footbal
 - run `npm i` from your terminal to install all of the project's dependecies
 - run `npm run dev` from your terminal to build and start the application
   - if your browser does not open automatically paste http://localhost:3000 in the address bar of your browser and press Enter
+
+## Reasoning
+
+- [Link to Reddit post explaining why I built this](https://www.reddit.com/r/PremierLeague/comments/11kas1q/football_league_tables_if_points_were_awarded/)
