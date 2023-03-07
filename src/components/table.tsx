@@ -14,9 +14,23 @@ const Table = ({
 }) => {
   const get_teams = teams
     .filter((team) => team.league_id === current_league)
-    .map((team, i) => (
-      <Team_Container key={team.id} team={team} index={i + 1} />
-    ));
+    .map((team, i) => {
+      const index = i + 1;
+      let text_colour = null;
+
+      if (index > team.position) text_colour = "text-red-500";
+      else if (index < team.position) text_colour = "text-green-400";
+      else text_colour = "text-inherit";
+
+      return (
+        <Team_Container
+          key={team.id}
+          team={team}
+          index={index}
+          text_colour={text_colour}
+        />
+      );
+    });
 
   const league = leagues.find((league) => league.id === current_league);
 
@@ -27,10 +41,18 @@ const Table = ({
           className={`grid w-full grid-cols-1 justify-items-center rounded-lg border border-zinc-400 px-3`}
         >
           <div
-            className={`grid w-full grid-cols-8 items-center gap-2 border-b p-2 text-sm lg:grid-cols-9`}
+            className={`grid w-full grid-cols-8 items-center gap-2 border-b p-2 text-sm sm:grid-cols-9 lg:grid-cols-10`}
           >
             <span className={`col-span-3 h-fit`}>club</span>
-            <span className={`h-fit`}>
+            <span className={`h-fit justify-self-center`}>mp</span>
+            <span className={`h-fit justify-self-center`}>w</span>
+            <span className={`hidden h-fit justify-self-center sm:block`}>
+              d
+            </span>
+            <span className={`h-fit justify-self-center`}>l</span>
+            <span className="hidden justify-self-center lg:block">gd</span>
+            <span className={`h-fit justify-self-center`}>pts</span>
+            <span className={`h-fit justify-self-center`}>
               <Image
                 alt="league logo"
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -43,11 +65,6 @@ const Table = ({
                 }}
               />
             </span>
-            <span className={`h-fit`}>mp</span>
-            <span className={`h-fit`}>w</span>
-            <span className={`h-fit`}>l</span>
-            <span className="hidden lg:block">gd</span>
-            <span className={`h-fit`}>pts</span>
           </div>
           <div className={`w-full`}>{get_teams}</div>
         </div>
