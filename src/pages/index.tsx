@@ -43,6 +43,7 @@ export async function getStaticProps() {
   const teams = get_teams(responses);
   const leagues_count = leagues.length;
   const max_allowed_req = 51840;
+  const revalidate_value = Math.round(max_allowed_req / leagues_count);
 
   if (typeof leagues_count !== "number" || leagues_count === 0) {
     throw new Error("failed fetch");
@@ -50,7 +51,7 @@ export async function getStaticProps() {
 
   return {
     props: { leagues, teams },
-    revalidate: max_allowed_req * leagues_count,
+    revalidate: revalidate_value,
   };
 }
 
