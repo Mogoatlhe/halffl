@@ -26,7 +26,11 @@ const Home = ({ leagues, teams }: { leagues: League[]; teams: Team[] }) => {
           current_league={current_league}
         />
         <div className="w-full">
-          <Table teams={teams} current_league={current_league} />
+          <Table
+            teams={teams}
+            current_league={current_league}
+            leagues={leagues}
+          />
         </div>
       </div>
     </>
