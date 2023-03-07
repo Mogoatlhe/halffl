@@ -9,6 +9,8 @@ type Team = {
   draws: number;
   times_played: number;
   league_id: number;
+  position: number;
+  real_league_points: number;
 };
 
 export default Team;

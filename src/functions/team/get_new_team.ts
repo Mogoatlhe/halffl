@@ -5,7 +5,8 @@ const get_new_team = (
   league_id: number,
   goal_diff: number,
   team: Team,
-  results: Results
+  results: Results,
+  real_league_points: number
 ): Team => {
   return {
     id: team.id,
@@ -18,6 +19,8 @@ const get_new_team = (
     draws: results.draw,
     times_played: 1,
     league_id,
+    position: 0,
+    real_league_points,
   };
 };
 
