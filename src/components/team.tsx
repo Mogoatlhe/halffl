@@ -34,10 +34,10 @@ const Team_Container = ({
       <span className="justify-self-center">{team.wins}</span>
       <span className="hidden justify-self-center sm:block">{team.draws}</span>
       <span className="justify-self-center">{team.losses}</span>
-      <span className="justify-self-center">{team.points}</span>
       <span className="hidden justify-self-center lg:block">
         {team.goal_diff}
       </span>
+      <span className="justify-self-center">{team.points}</span>
       <span className={`${text_colour} justify-self-center font-semibold`}>
         {team.position}
       </span>
