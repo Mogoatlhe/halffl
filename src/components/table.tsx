@@ -1,4 +1,6 @@
 import Image from "next/image";
+import sort_teams_by_points from "~/functions/team/sort_teams_by_points";
+import sort_teams_by_real_league_points from "~/functions/team/sort_teams_by_real_points";
 import type League from "~/types/League";
 import type Team from "~/types/Team";
 import Team_Container from "./team";
@@ -12,15 +14,23 @@ const Table = ({
   current_league: number;
   leagues: League[];
 }) => {
-  const get_teams = teams
-    .filter((team) => team.league_id === current_league)
-    .map((team, i) => {
+  const get_teams_by_league = teams.filter(
+    (team) => team.league_id === current_league
+  );
+  const sort_teams_by_real_points = sort_teams_by_real_league_points(
+    get_teams_by_league
+  ).map((team, i) => {
+    team.position = i + 1;
+    return team;
+  });
+  const get_teams = sort_teams_by_points(sort_teams_by_real_points).map(
+    (team, i) => {
       const index = i + 1;
       let text_colour = null;
 
       if (index > team.position) text_colour = "text-red-500";
       else if (index < team.position) text_colour = "text-green-400";
-      else text_colour = "text-inherit";
+      else text_colour = "text-slate-500";
 
       return (
         <Team_Container
@@ -30,7 +40,8 @@ const Table = ({
           text_colour={text_colour}
         />
       );
-    });
+    }
+  );
 
   const league = leagues.find((league) => league.id === current_league);
 

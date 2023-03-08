@@ -2,7 +2,6 @@ import type Team from "~/types/Team";
 import type Response_Types from "~/types/Response_Types";
 import add_teams from "./add_teams";
 import sort_teams_by_points from "./sort_teams_by_points";
-import sort_teams_by_real_league_points from "./sort_teams_by_real_points";
 
 const get_teams = (responses: Response_Types[]) => {
   const teams = Array(0) as Team[];
@@ -30,12 +29,7 @@ const get_teams = (responses: Response_Types[]) => {
     }
   }
 
-  const temp_teams = sort_teams_by_real_league_points(teams).map((team, i) => {
-    team.position = i + 1;
-    return team;
-  });
-
-  return sort_teams_by_points(temp_teams);
+  return sort_teams_by_points(teams);
 };
 
 export default get_teams;
