@@ -1,6 +1,7 @@
 const get_requests = (urls: string[]) => {
   const max_requests_per_second = 864; // seconds in a day / allowed requests per day ( 86400 / 100 )
-  const max_batch_requests_per_second = max_requests_per_second * urls.length;
+  const max_batch_requests_per_second =
+    max_requests_per_second * urls.length * 2;
 
   return urls.map((url) =>
     fetch(url, {
