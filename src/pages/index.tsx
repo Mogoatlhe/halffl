@@ -43,12 +43,17 @@ export async function getStaticProps() {
   const teams = get_teams(responses);
   const leagues_count = leagues.length;
 
+  const max_requests_per_second = 864; // seconds in a day / allowed requests per day ( 86400 / 100 )
+  const max_batch_requests_per_second =
+    max_requests_per_second * leagues_count * 2;
+
   if (typeof leagues_count !== "number" || leagues_count === 0) {
     throw new Error("failed fetch");
   }
 
   return {
     props: { leagues, teams },
+    revalidate: max_batch_requests_per_second,
   };
 }
 
