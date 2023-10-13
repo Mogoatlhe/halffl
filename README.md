@@ -27,3 +27,7 @@ halffl (half football leagues) is a website which displays what selected footbal
 ## Reasoning
 
 - [Link to Reddit post explaining why I built this](https://www.reddit.com/r/PremierLeague/comments/11kas1q/football_league_tables_if_points_were_awarded/)
+
+## Update - 13/10/2023
+
+- New request to the API fail, error: missing application key. I can't login into my account nor can I create a new account.
