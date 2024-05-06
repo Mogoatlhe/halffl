@@ -1,11 +1,13 @@
 import type Response_Types from "~/types/Response_Types";
 
 const get_leagues = (responses: Response_Types[]) => {
-  const leagues = responses.map((response) => {
-    const league = response.league;
+  const leagues = responses
+    .filter((response) => response != null)
+    .map((response) => {
+      const league = response.league;
 
-    return league;
-  });
+      return league;
+    });
 
   // removes duplicates
   return leagues.filter(
