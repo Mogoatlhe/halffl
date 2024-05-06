@@ -31,3 +31,7 @@ halffl (half football leagues) is a website which displays what selected footbal
 ## Update - 13/10/2023
 
 - New request to the API fail, error: missing application key. I can't login into my account nor can I create a new account.
+
+## Update - 06/05/2024
+
+- changed api provider from `football api` to `rapid api`.
