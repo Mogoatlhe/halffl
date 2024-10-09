@@ -9,11 +9,6 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  experimental: {
-    fontLoaders: [
-      { loader: "@next/font/google", options: { subsets: ["latin"] } },
-    ],
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
