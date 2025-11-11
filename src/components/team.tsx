@@ -30,7 +30,9 @@ const Team_Container = ({
         </div>
         <p className="w-16 truncate whitespace-nowrap sm:w-36">{`${team.name}`}</p>
       </div>
-      <span className="justify-self-center">{team.times_played}</span>
+      <span className="self-center justify-self-center">
+        {team.times_played}
+      </span>
       <span className="justify-self-center">{team.wins}</span>
       <span className="hidden justify-self-center sm:block">{team.draws}</span>
       <span className="justify-self-center">{team.losses}</span>
