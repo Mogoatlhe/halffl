@@ -12,7 +12,7 @@ const Team_Container = ({
 }) => {
   return (
     <div
-      className={`grid w-full grid-cols-8 gap-2 border-b px-1 py-2 text-sm sm:grid-cols-9 lg:grid-cols-10`}
+      className={`grid w-full grid-cols-8 content-center gap-2 border-b px-1 py-2 text-sm sm:grid-cols-9 lg:grid-cols-10`}
     >
       <div className="col-span-3 flex items-center gap-2">
         <div className="flex">
